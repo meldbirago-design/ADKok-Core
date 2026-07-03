@@ -1,5 +1,7 @@
-﻿import { Box } from "@mui/material";
+import { Box } from "@mui/material";
+
 import BackgroundCanvas from "./BackgroundCanvas";
+import SidebarGlassCard from "./SidebarGlassCard";
 
 export default function MainContent({ children }) {
   return (
@@ -8,24 +10,17 @@ export default function MainContent({ children }) {
       sx={{
         position: "relative",
         width: "100%",
-        minHeight: "100vh",
-        pt: "72px",
-        overflow: "hidden",
+        height: "calc(100vh - 64px)",
         bgcolor: "#0B0E14",
+        overflow: "hidden",
       }}
     >
       <BackgroundCanvas />
 
-      <Box
-        sx={{
-          position: "relative",
-          zIndex: 2,
-          width: "100%",
-          minHeight: "calc(100vh - 72px)",
-        }}
-      >
-        {children}
-      </Box>
+      {/* Glass panel beneath the logo */}
+      <SidebarGlassCard />
+
+      {children}
     </Box>
   );
 }

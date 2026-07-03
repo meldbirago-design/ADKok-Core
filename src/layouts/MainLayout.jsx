@@ -7,17 +7,24 @@ export default function MainLayout({ children }) {
   return (
     <Box
       sx={{
-        width: "100%",
-        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
         bgcolor: "#0B0E14",
-        overflow: "hidden",
       }}
     >
       <Topbar />
 
-      <MainContent>
-        {children}
-      </MainContent>
+      <Box
+        sx={{
+          flex: 1,
+          pt: "64px",
+        }}
+      >
+        <MainContent>
+          {children}
+        </MainContent>
+      </Box>
     </Box>
   );
 }

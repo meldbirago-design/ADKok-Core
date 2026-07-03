@@ -1,71 +1,112 @@
-﻿import { Box } from "@mui/material";
+import { Box } from "@mui/material";
+import { keyframes } from "@mui/system";
+
+const shimmer = keyframes`
+  0% {
+    transform: translateX(-160%) rotate(-18deg);
+    opacity: 0;
+  }
+
+  8% {
+    opacity: .035;
+  }
+
+  22% {
+    opacity: .035;
+  }
+
+  30% {
+    transform: translateX(160%) rotate(-18deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(160%) rotate(-18deg);
+    opacity: 0;
+  }
+`;
+
+const breathe = keyframes`
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(101.5%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+`;
 
 export default function BackgroundCanvas() {
   return (
-    <>
-      {/* Base Background */}
+    <Box
+      sx={{
+        position: "relative",
+        width: "100%",
+        overflow: "hidden",
+      }}
+    >
+      {/* Background Image */}
+
+      <Box
+        sx={{
+          width: "100%",
+          overflow: "hidden",
+          animation: `${breathe} 18s ease-in-out infinite`,
+        }}
+      >
+        <Box
+          component="img"
+          src="/images/dashboard/dashboard-bg.png"
+          alt="ADKok Background"
+          sx={{
+            display: "block",
+            width: "100%",
+            height: "auto",
+
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        />
+      </Box>
+
+      {/* Ambient Shimmer */}
+
       <Box
         sx={{
           position: "absolute",
+
           inset: 0,
-          zIndex: 0,
-          background: `
-            radial-gradient(circle at 18% 22%, rgba(214,164,90,.12), transparent 34%),
-            radial-gradient(circle at 82% 16%, rgba(255,255,255,.05), transparent 26%),
-            radial-gradient(circle at 72% 78%, rgba(214,164,90,.08), transparent 34%),
-            linear-gradient(180deg,#0B0E14 0%,#11151F 100%)
-          `,
-        }}
-      />
 
-      {/* Top Glow */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: -180,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: 700,
-          height: 700,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(214,164,90,.08), transparent 70%)",
-          filter: "blur(80px)",
-          zIndex: 0,
-        }}
-      />
+          overflow: "hidden",
 
-      {/* Left Glow */}
-      <Box
-        sx={{
-          position: "absolute",
-          left: -250,
-          bottom: -250,
-          width: 520,
-          height: 520,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(214,164,90,.06), transparent 70%)",
-          filter: "blur(90px)",
-          zIndex: 0,
+          pointerEvents: "none",
         }}
-      />
+      >
+        <Box
+          sx={{
+            position: "absolute",
 
-      {/* Right Glow */}
-      <Box
-        sx={{
-          position: "absolute",
-          right: -220,
-          top: 120,
-          width: 420,
-          height: 420,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(255,255,255,.05), transparent 70%)",
-          filter: "blur(80px)",
-          zIndex: 0,
-        }}
-      />
-    </>
+            top: "-20%",
+
+            left: "-40%",
+
+            width: "45%",
+
+            height: "160%",
+
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(255,255,255,.07) 50%, transparent 100%)",
+
+            filter: "blur(70px)",
+
+            animation: `${shimmer} 15s ease-in-out infinite`,
+          }}
+        />
+      </Box>
+    </Box>
   );
 }

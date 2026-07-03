@@ -1,7 +1,7 @@
 ﻿import { Box, Typography } from "@mui/material";
 import MainLayout from "../../layouts/MainLayout";
 
-export default function Quote() {
+export default function ChatWithUs() {
   return (
     <MainLayout>
 
@@ -24,7 +24,7 @@ export default function Quote() {
             mb:2,
           }}
         >
-          Get a Quote
+          Chat With Us
         </Typography>
 
         <Typography

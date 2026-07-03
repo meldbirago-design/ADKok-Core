@@ -1,59 +1,35 @@
-﻿import { Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function HeroDescription() {
   return (
-    <Stack
-      spacing={3}
-      alignItems="center"
-      textAlign="center"
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: 520,
+        mx: "auto",
+        textAlign: "center",
+      }}
     >
       <Typography
         sx={{
-          color: "#FFFFFF",
-          fontWeight: 700,
+          color: "rgba(255,255,255,.56)",
           fontSize: {
-            xs: 42,
-            md: 78,
+            xs: 9,
+            md: 13,
           },
-          lineHeight: 1,
-          letterSpacing: ".03em",
+          fontWeight: 40,
+          lineHeight: 2,
+          letterSpacing: "2px",
+          fontFamily:
+            '","Plus Jakarta Sans","Manrope","Poppins",sans-serif',
         }}
       >
-        [A]DKok
+        Whether it be for a business, a church, a school or your personal brand,
+        ADKok makes it easy to own a premium website through
+        affordable pricing, proven website blueprints and
+        a steady team ready to support you every step of the way.
       </Typography>
-
-      <Typography
-        sx={{
-          color: "#D6A45A",
-          fontWeight: 700,
-          fontSize: {
-            xs: 22,
-            md: 36,
-          },
-          letterSpacing: ".08em",
-        }}
-      >
-        You Imagine.
-        <br />
-        We Build.
-      </Typography>
-
-      <Typography
-        sx={{
-          color: "rgba(255,255,255,.82)",
-          fontSize: {
-            xs: 17,
-            md: 21,
-          },
-          maxWidth: 720,
-          lineHeight: 1.9,
-        }}
-      >
-        Whether you're starting a business, growing a church,
-        launching a school or building your personal brand,
-        ADKok creates premium websites that are beautiful,
-        affordable and built to help you grow with confidence.
-      </Typography>
-    </Stack>
+    </Box>
   );
 }
+
