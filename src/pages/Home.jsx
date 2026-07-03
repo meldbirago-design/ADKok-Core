@@ -1,18 +1,10 @@
-﻿import { Typography } from "@mui/material";
-import MainLayout from "../layouts/MainLayout";
+﻿import MainLayout from "../layouts/MainLayout";
+import HeroContainer from "../components/hero/HeroContainer";
 
 export default function Home() {
   return (
     <MainLayout>
-      <Typography
-        variant="h2"
-        sx={{
-          fontWeight: 700,
-          color: "#FFFFFF",
-        }}
-      >
-        HOME
-      </Typography>
+      <HeroContainer />
     </MainLayout>
   );
 }

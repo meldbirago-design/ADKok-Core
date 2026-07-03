@@ -1,5 +1,8 @@
 ﻿import { Box } from "@mui/material";
 
+import Topbar from "../components/layout/Topbar";
+import MainContent from "../components/layout/MainContent";
+
 export default function MainLayout({ children }) {
   return (
     <Box
@@ -7,14 +10,14 @@ export default function MainLayout({ children }) {
         width: "100%",
         minHeight: "100vh",
         bgcolor: "#0B0E14",
-        color: "#FFFFFF",
-
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        overflow: "hidden",
       }}
     >
-      {children}
+      <Topbar />
+
+      <MainContent>
+        {children}
+      </MainContent>
     </Box>
   );
 }
